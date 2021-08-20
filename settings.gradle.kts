@@ -1,3 +1,4 @@
+include(":domain")
 rootProject.name = "Hyper"
 
 include (":app")
