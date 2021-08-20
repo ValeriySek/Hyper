@@ -1,6 +1,5 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-
 buildscript {
+    val kotlin_version by extra("1.4.32")
     repositories {
         google()
         mavenCentral()
@@ -9,11 +8,46 @@ buildscript {
         classpath (BuildScript.Plugins.ANDROID_TOOLS_BUILD)
         classpath (BuildScript.Plugins.KOTLIN)
         classpath (BuildScript.Plugins.HILT_PLUGIN)
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
     }
 }
 
+subprojects {
+    afterEvaluate {
+        extensions
+            .findByType(com.android.build.gradle.TestedExtension::class.java)
+            ?.apply {
+
+                defaultConfig {
+                    versionCode = AppConfig.VERSION_CODE
+                    versionName = AppConfig.VERSION_NAME
+                    minSdkVersion(AppConfig.MIN_SDK_VERSION)
+                    targetSdkVersion(AppConfig.TARGET_SDK_VERSION)
+                }
+
+                compileSdkVersion(AppConfig.COMPILE_SDK_VERSION)
+                buildToolsVersion(AppConfig.BUILD_TOOL_VERSION)
+
+//                sourceSets.forEach { sourceSet ->
+//                    sourceSet.java.srcDir("src/${sourceSet.name}/kotlin")
+//                }
+
+                with(compileOptions) {
+                    sourceCompatibility = JavaVersion.VERSION_1_8
+                    targetCompatibility = JavaVersion.VERSION_1_8
+                }
+//                packagingOptions {
+//                    exclude("META-INF/DEPENDENCIES")
+//                    exclude("META-INF/AL2.0")
+//                    exclude("META-INF/LGPL2.1")
+//                }
+//
+//                if (group.toString().contains("feature", ignoreCase = true)) {
+//                    dependencies.add("implementation", Libraries.EDGE_TO_EDGE)
+//                }
+            }
+    }
+}
 allprojects {
     repositories {
         google()

@@ -7,9 +7,6 @@ object Vers {
     const val androidxCore = "1.6.0"
     const val androidxAppcompat = "1.3.1"
     const val constraintlayout = "2.1.0"
-    const val androidxTestExt = "1.1.3"
-    const val androidxTestEspresso = "3.4.0"
-
     const val googleAndroidMaterial = "1.4.0"
 
     //hilt

@@ -9,8 +9,6 @@ object BuildScript{
     }
 }
 
-
-
 object Libraries {
 
     const val KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib:${Vers.kotlinVersion}"
@@ -35,6 +33,12 @@ object Libraries {
 
         const val CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$VER"
         const val ANDROID = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$VER"
+    }
+
+    object Firebase {
+
+        const val AUTHENTICATION = "com.google.firebase:firebase-auth:19.3.0"
+        const val FIRESTORE = "com.google.firebase:firebase-firestore-ktx:21.4.2"
     }
 
     object Tests {
