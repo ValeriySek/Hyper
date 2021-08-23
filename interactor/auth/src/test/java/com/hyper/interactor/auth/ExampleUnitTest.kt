@@ -1,4 +1,4 @@
-package com.hyper.implementation.auth
+package com.hyper.interactor.auth
 
 import org.junit.Test
 

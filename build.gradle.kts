@@ -9,6 +9,7 @@ buildscript {
         classpath (BuildScript.Plugins.KOTLIN)
         classpath (BuildScript.Plugins.HILT_PLUGIN)
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
+        classpath("com.android.tools.build:gradle:4.1.3")
     }
 }
 

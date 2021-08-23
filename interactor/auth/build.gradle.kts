@@ -7,6 +7,8 @@ plugins {
 
 dependencies {
 
+    implementation(project(":domain"))
+
     implementation(Libraries.KOTLIN)
     implementation(Libraries.Android.ANDROIDX_CORE)
     implementation(Libraries.Android.ANDROIDX_APPCOMPAT)

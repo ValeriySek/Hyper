@@ -56,6 +56,9 @@ dependencies {
     implementation(Libraries.Android.ANDROIDX_APPCOMPAT)
     implementation(Libraries.Coroutines.CORE)
     implementation(Libraries.Coroutines.ANDROID)
+    implementation(Libraries.Android.VIEW_MODEL)
+    implementation(Libraries.Android.FRAGMENT)
+    implementation(Libraries.Android.ACTIVITY)
 
     implementation(Libraries.Android.ANDROID_MATERIAL)
     implementation(Libraries.Android.CONSTRAINT_LAYOUT)

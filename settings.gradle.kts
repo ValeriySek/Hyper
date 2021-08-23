@@ -1,7 +1,7 @@
-include(":domain")
+
 rootProject.name = "Hyper"
 
 include (":app")
+include(":domain")
 include(":feature:auth")
-include(":implementation:auth")
-
+include(":interactor:auth")

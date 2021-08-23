@@ -15,8 +15,8 @@
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/auth" />
-            <option value="$PROJECT_DIR$/implementation" />
-            <option value="$PROJECT_DIR$/implementation/auth" />
+            <option value="$PROJECT_DIR$/interactor" />
+            <option value="$PROJECT_DIR$/interactor/auth" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
