@@ -26,12 +26,25 @@ android {
 
 dependencies {
 
-    implementation(project(":feature:base-feature"))
-    implementation(project(":interactor:auth"))
-    
+    api(Libraries.KOTLIN)
+    api(Libraries.Android.ANDROIDX_CORE)
+    api(Libraries.Android.ANDROIDX_APPCOMPAT)
+    api(Libraries.Coroutines.CORE)
+    api(Libraries.Coroutines.ANDROID)
+    api(Libraries.Android.VIEW_MODEL)
+    api(Libraries.Android.FRAGMENT)
+    api(Libraries.Android.ACTIVITY)
+    api(Libraries.Android.NAV_FRAGMENT)
+    api(Libraries.Android.NAV_UI)
+    api(Libraries.Android.LIVE_DATA)
+
+    api(Libraries.Android.ANDROID_MATERIAL)
+    api(Libraries.Android.CONSTRAINT_LAYOUT)
+
     //hilt
     api(Libraries.Hilt.HILT)
     kapt(Libraries.Hilt.HILT_KAPT)
+
 
     testImplementation(Libraries.Tests.JUNIT)
     androidTestImplementation(Libraries.Tests.TEST_EXT)

@@ -19,9 +19,12 @@ object Libraries {
         const val ANDROIDX_APPCOMPAT = "androidx.appcompat:appcompat:${Vers.androidxAppcompat}"
         const val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:${Vers.constraintlayout}"
         const val ANDROID_MATERIAL = "com.google.android.material:material:${Vers.googleAndroidMaterial}"
-        const val VIEW_MODEL = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-alpha03"
+        const val VIEW_MODEL = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
+        const val LIVE_DATA = "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
         const val FRAGMENT = "androidx.fragment:fragment-ktx:1.3.6"
         const val ACTIVITY = "androidx.activity:activity-ktx:1.3.1"
+        const val NAV_FRAGMENT = "androidx.navigation:navigation-fragment-ktx:2.3.5"
+            const val NAV_UI = "androidx.navigation:navigation-ui-ktx:2.3.5"
     }
 
     object Hilt {

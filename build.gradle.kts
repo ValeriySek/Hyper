@@ -24,6 +24,8 @@ subprojects {
                     versionName = AppConfig.VERSION_NAME
                     minSdkVersion(AppConfig.MIN_SDK_VERSION)
                     targetSdkVersion(AppConfig.TARGET_SDK_VERSION)
+
+                    vectorDrawables.useSupportLibrary = true
                 }
 
                 compileSdkVersion(AppConfig.COMPILE_SDK_VERSION)
