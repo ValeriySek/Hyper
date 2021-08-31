@@ -15,11 +15,10 @@ dependencies {
     implementation(Libraries.Coroutines.CORE)
     implementation(Libraries.Coroutines.ANDROID)
 
-    implementation(Libraries.Android.ANDROID_MATERIAL)
-    implementation(Libraries.Android.CONSTRAINT_LAYOUT)
-
     implementation(Libraries.Firebase.AUTHENTICATION)
     implementation(Libraries.Firebase.FIRESTORE)
+    implementation(Libraries.Firebase.ANALYTICS)
+    implementation(platform(Libraries.Firebase.BOM))
 
     //hilt
     implementation(Libraries.Hilt.HILT)

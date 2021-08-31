@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     id("com.android.library")
     id("kotlin-android")
@@ -6,14 +8,6 @@ plugins {
 }
 
 android {
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
 
     kapt {
         correctErrorTypes = true
@@ -31,6 +25,9 @@ dependencies {
     
     //hilt
     api(Libraries.Hilt.HILT)
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.3.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
     kapt(Libraries.Hilt.HILT_KAPT)
 
     testImplementation(Libraries.Tests.JUNIT)

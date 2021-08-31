@@ -1,4 +1,4 @@
-package com.hyper.feature.auth
+package com.hyper.feature.auth.auth
 
 import androidx.lifecycle.ViewModel
 

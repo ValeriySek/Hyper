@@ -3,6 +3,7 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -29,19 +30,9 @@ android {
         }
     }
 
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-
     kapt {
         correctErrorTypes = true
     }
-
     buildFeatures {
         viewBinding = true
     }
@@ -50,6 +41,7 @@ android {
 dependencies {
 
     implementation(project(":feature:auth"))
+    implementation(project(":feature:base-feature"))
 
     implementation(Libraries.KOTLIN)
     implementation(Libraries.Android.ANDROIDX_CORE)
@@ -60,11 +52,18 @@ dependencies {
     implementation(Libraries.Android.FRAGMENT)
     implementation(Libraries.Android.ACTIVITY)
 
+    implementation(Libraries.Firebase.AUTHENTICATION)
+    implementation(Libraries.Firebase.FIRESTORE)
+    implementation(Libraries.Firebase.ANALYTICS)
+    implementation(platform(Libraries.Firebase.BOM))
+
     implementation(Libraries.Android.ANDROID_MATERIAL)
     implementation(Libraries.Android.CONSTRAINT_LAYOUT)
 
     //hilt
     implementation(Libraries.Hilt.HILT)
+    implementation("androidx.navigation:navigation-fragment-ktx:2.3.5")
+    implementation("androidx.navigation:navigation-ui-ktx:2.3.5")
     kapt(Libraries.Hilt.HILT_KAPT)
 
 

@@ -34,9 +34,9 @@ dependencies {
     api(Libraries.Android.VIEW_MODEL)
     api(Libraries.Android.FRAGMENT)
     api(Libraries.Android.ACTIVITY)
+    api(Libraries.Android.LIVE_DATA)
     api(Libraries.Android.NAV_FRAGMENT)
     api(Libraries.Android.NAV_UI)
-    api(Libraries.Android.LIVE_DATA)
 
     api(Libraries.Android.ANDROID_MATERIAL)
     api(Libraries.Android.CONSTRAINT_LAYOUT)

@@ -16,7 +16,15 @@
 
     <fragment
         android:id="@+id/auth_fragment"
-        android:name="com.hyper.feature.auth.AuthFragment"
-        tools:layout="@layout/auth_fragment"/>
+        android:name="com.hyper.feature.auth.auth.AuthFragment"
+        tools:layout="@layout/auth_fragment">
+        <action
+            android:id="@+id/action_auth_fragment_to_login_by_sms_fragment"
+            app:destination="@id/login_by_sms_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/login_by_sms_fragment"
+        android:name="com.hyper.feature.auth.login_by_sms.LoginBySmsFragment"/>
 
 </navigation>

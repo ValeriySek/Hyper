@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 buildscript {
     val kotlin_version by extra("1.4.32")
     repositories {
@@ -5,15 +7,21 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath (BuildScript.Plugins.ANDROID_TOOLS_BUILD)
-        classpath (BuildScript.Plugins.KOTLIN)
-        classpath (BuildScript.Plugins.HILT_PLUGIN)
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
+        classpath(BuildScript.Plugins.ANDROID_TOOLS_BUILD)
+        classpath(BuildScript.Plugins.KOTLIN)
+        classpath(BuildScript.Plugins.HILT_PLUGIN)
+        classpath(BuildScript.Plugins.GMS)
         classpath("com.android.tools.build:gradle:4.1.3")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.20")
     }
 }
 
 subprojects {
+    tasks.withType<KotlinCompile>().configureEach {
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
+    }
     afterEvaluate {
         extensions
             .findByType(com.android.build.gradle.TestedExtension::class.java)
@@ -38,6 +46,18 @@ subprojects {
                 with(compileOptions) {
                     sourceCompatibility = JavaVersion.VERSION_1_8
                     targetCompatibility = JavaVersion.VERSION_1_8
+                }
+
+                packagingOptions {
+                    exclude("META-INF/DEPENDENCIES")
+                    exclude("META-INF/LICENSE")
+                    exclude("META-INF/LICENSE.txt")
+                    exclude("META-INF/license.txt")
+                    exclude("META-INF/NOTICE")
+                    exclude("META-INF/NOTICE.txt")
+                    exclude("META-INF/notice.txt")
+                    exclude("META-INF/ASL2.0")
+                    exclude("META-INF/*.kotlin_module")
                 }
 //                packagingOptions {
 //                    exclude("META-INF/DEPENDENCIES")
