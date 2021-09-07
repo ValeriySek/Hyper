@@ -11,7 +11,9 @@
         tools:layout="@layout/splash_fragment">
         <action
             android:id="@+id/action_splash_fragment_to_auth_fragment"
-            app:destination="@id/auth_fragment" />
+            app:destination="@id/auth_fragment"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
 
     <fragment
@@ -20,11 +22,27 @@
         tools:layout="@layout/auth_fragment">
         <action
             android:id="@+id/action_auth_fragment_to_login_by_sms_fragment"
-            app:destination="@id/login_by_sms_fragment" />
+            app:destination="@id/login_by_sms_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
         android:id="@+id/login_by_sms_fragment"
-        android:name="com.hyper.feature.auth.login_by_sms.LoginBySmsFragment"/>
+        android:name="com.hyper.feature.auth.login_by_sms.LoginBySmsFragment">
+        <action
+            android:id="@+id/action_login_by_sms_fragment_to_sms_code_fragment"
+            app:destination="@id/sms_code_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/sms_code_fragment"
+        android:name="com.hyper.feature.auth.sms_code.SmsCodeFragment"/>
 
 </navigation>

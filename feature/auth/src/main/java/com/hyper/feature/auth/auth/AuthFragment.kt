@@ -11,7 +11,7 @@ import com.hyper.feature.auth.R
 import com.hyper.feature.auth.databinding.FragmentAuthBinding
 
 
-class AuthFragment : Fragment() {
+class AuthFragment : Fragment(R.layout.fragment_auth) {
 
     private lateinit var viewModel: AuthViewModel
     private lateinit var binding: FragmentAuthBinding

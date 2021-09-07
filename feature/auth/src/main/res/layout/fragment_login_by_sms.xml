@@ -51,6 +51,7 @@
             app:boxStrokeColor="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/login_phone_iet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
@@ -63,6 +64,7 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/login_next_btn"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

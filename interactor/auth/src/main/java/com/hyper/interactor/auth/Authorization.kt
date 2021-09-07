@@ -10,18 +10,21 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import java.util.concurrent.TimeUnit
 
+
+
 class Authorization(
-    val activity: Activity
+    private val activity: Activity,
+    private val onCodeSent: ((String) -> Unit)? = null,
+    private val onLogin: (() -> Unit)? = null
 ) {
 
-    private lateinit var auth: FirebaseAuth
+    private var auth: FirebaseAuth = Firebase.auth
 
     private var storedVerificationId: String? = ""
     private lateinit var resendToken: PhoneAuthProvider.ForceResendingToken
     private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
 
     fun isAuthorized(): Boolean {
-        auth = Firebase.auth
         return auth.currentUser != null
     }
 
@@ -58,6 +61,7 @@ class Authorization(
                 verificationId: String,
                 token: PhoneAuthProvider.ForceResendingToken
             ) {
+                onCodeSent?.invoke(verificationId)
                 // The SMS verification code has been sent to the provided phone number, we
                 // now need to ask the user to enter the code and then construct a credential
                 // by combining the code with a verification ID.
@@ -78,9 +82,14 @@ class Authorization(
         PhoneAuthProvider.verifyPhoneNumber(options)
     }
 
-    private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
+    fun provideCode(code: String) {
+//        val credential = PhoneAuthCredential
+
+    }
+
+    fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
         auth.signInWithCredential(credential)
-            .addOnCompleteListener(activity) { task ->
+            .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.i("TAGG", "signInWithCredential:success")
