@@ -1,7 +1,12 @@
 package com.hyper.feature.auth.login_by_sms
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.scopes.ViewModelScoped
 
+@ViewModelScoped
 class LoginBySmsViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+
+
+    val liveData = MutableLiveData<String>("njn ntls")
 }

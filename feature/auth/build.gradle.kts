@@ -30,6 +30,11 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
     kapt(Libraries.Hilt.HILT_KAPT)
 
+    implementation(Libraries.Firebase.AUTHENTICATION)
+    implementation(Libraries.Firebase.FIRESTORE)
+    implementation(Libraries.Firebase.ANALYTICS)
+    implementation(platform(Libraries.Firebase.BOM))
+
     testImplementation(Libraries.Tests.JUNIT)
     androidTestImplementation(Libraries.Tests.TEST_EXT)
     androidTestImplementation(Libraries.Tests.ESPRESSO)

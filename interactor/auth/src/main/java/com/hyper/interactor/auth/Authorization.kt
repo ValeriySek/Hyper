@@ -1,22 +1,27 @@
 package com.hyper.interactor.auth
 
 import android.app.Activity
+import android.content.Context
 import android.util.Log
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
-
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import dagger.hilt.android.qualifiers.ActivityContext
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.android.scopes.ActivityScoped
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
+import javax.inject.Singleton
 
-
-
-class Authorization(
-    private val activity: Activity,
-    private val onCodeSent: ((String) -> Unit)? = null,
-    private val onLogin: (() -> Unit)? = null
+@ActivityScoped
+open class Authorization @Inject constructor(
+    @ActivityContext private val context: Context,
 ) {
+
+    var onCodeSent: ((String) -> Unit)? = null
+    val onLogin: (() -> Unit)? = null
 
     private var auth: FirebaseAuth = Firebase.auth
 
@@ -76,7 +81,7 @@ class Authorization(
         val options = PhoneAuthOptions.newBuilder(auth)
             .setPhoneNumber(phoneNumber)
             .setTimeout(60L, TimeUnit.SECONDS)
-            .setActivity(activity)
+            .setActivity(context as Activity)
             .setCallbacks(callbacks)
             .build()
         PhoneAuthProvider.verifyPhoneNumber(options)
