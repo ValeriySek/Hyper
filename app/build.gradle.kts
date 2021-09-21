@@ -40,9 +40,6 @@ android {
 
 dependencies {
 
-    implementation(project(":feature:auth"))
-    implementation(project(":feature:base-feature"))
-
     implementation(Libraries.KOTLIN)
     implementation(Libraries.Android.ANDROIDX_CORE)
     implementation(Libraries.Android.ANDROIDX_APPCOMPAT)

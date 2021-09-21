@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_graph"
+    app:startDestination="@id/splash_fragment">
+
+    <fragment
+        android:id="@+id/splash_fragment"
+        android:name="com.android.hyper.feature.splash.SplashFragment"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splash_fragment_to_auth_fragment"
+            app:destination="@id/auth_fragment"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/auth_fragment"
+        android:name="com.android.hyper.feature.auth.AuthFragment"
+        tools:layout="@layout/fragment_auth">
+        <action
+            android:id="@+id/action_auth_fragment_to_login_by_sms_fragment"
+            app:destination="@id/login_by_sms_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/login_by_sms_fragment"
+        android:name="com.android.hyper.feature.login_by_sms.LoginBySmsFragment"
+        tools:layout="@layout/fragment_login_by_sms">
+        <action
+            android:id="@+id/action_login_by_sms_fragment_to_sms_code_fragment"
+            app:destination="@id/sms_code_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/sms_code_fragment"
+        android:name="com.android.hyper.feature.sms_code.SmsCodeFragment"
+        tools:layout="@layout/fragment_sms_code"/>
+
+</navigation>
