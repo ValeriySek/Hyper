@@ -24,7 +24,7 @@ class SmsCodeFragment : Fragment(R.layout.fragment_sms_code) {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentSmsCodeBinding.inflate(inflater)
         return binding.root
     }
