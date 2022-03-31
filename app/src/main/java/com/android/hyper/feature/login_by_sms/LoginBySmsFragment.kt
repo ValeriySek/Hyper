@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.android.hyper.R
 import com.android.hyper.databinding.FragmentLoginBySmsBinding
+import com.android.hyper.utils.network.NetworkMonitor
 
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -22,6 +24,7 @@ class LoginBySmsFragment : Fragment(R.layout.fragment_login_by_sms) {
     }
 
     @Inject lateinit var authorization: Authorization
+    @Inject lateinit var networkMonitor: NetworkMonitor
 
     private lateinit var binding: FragmentLoginBySmsBinding
 
@@ -43,10 +46,29 @@ class LoginBySmsFragment : Fragment(R.layout.fragment_login_by_sms) {
 
         viewModel = ViewModelProvider(this).get(LoginBySmsViewModel::class.java)
         binding.loginNextBtn.setOnClickListener {
-            authorization.startPhoneNumberVerification(binding.loginPhoneIet.text.toString())
-            authorization.onCodeSent = onCodeSent
-//            findNavController().navigate(R.id.action_login_by_sms_fragment_to_sms_code_fragment)
+//            authorization.startPhoneNumberVerification(binding.loginPhoneIet.text.toString())
+//            authorization.onCodeSent = onCodeSent
+            findNavController().navigate(R.id.action_login_by_sms_fragment_to_sms_code_fragment)
+        }
+
+        networkMonitor.result = {isAvailable, type ->
+            val text = if(isAvailable) {
+                "isAvailable"
+            } else {
+                "!isAvailable"
+            }
+            Toast.makeText(requireContext(), text, Toast.LENGTH_SHORT).show()
         }
     }
 
+
+    override fun onResume() {
+        super.onResume()
+        networkMonitor.register()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        networkMonitor.unregister()
+    }
 }

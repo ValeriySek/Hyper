@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.android.hyper.R
 import com.android.hyper.databinding.FragmentSmsCodeBinding
 
@@ -38,6 +39,7 @@ class SmsCodeFragment : Fragment(R.layout.fragment_sms_code) {
         viewModel = ViewModelProvider(this).get(SmsCodeViewModel::class.java)
         binding.smsNextBtn.setOnClickListener {
 //            Authorization(requireActivity(), onLogin = onLogin).signInWithPhoneAuthCredential()
+            findNavController().navigate(R.id.action_sms_code_fragment_to_choseRoleFragment)
         }
     }
 

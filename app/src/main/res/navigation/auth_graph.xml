@@ -45,6 +45,15 @@
     <fragment
         android:id="@+id/sms_code_fragment"
         android:name="com.android.hyper.feature.sms_code.SmsCodeFragment"
-        tools:layout="@layout/fragment_sms_code"/>
+        tools:layout="@layout/fragment_sms_code">
+        <action
+            android:id="@+id/action_sms_code_fragment_to_choseRoleFragment"
+            app:destination="@id/choseRoleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/choseRoleFragment"
+        android:name="com.android.hyper.feature.chose_role.ChoseRoleFragment"
+        android:label="fragment_chose_role"
+        tools:layout="@layout/fragment_chose_role" />
 
 </navigation>

@@ -1,6 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
+    val kotlin_version by extra("1.5.0")
     repositories {
         google()
         mavenCentral()
@@ -10,7 +11,7 @@ buildscript {
         classpath(BuildScript.Plugins.KOTLIN)
         classpath(BuildScript.Plugins.HILT_PLUGIN)
         classpath(BuildScript.Plugins.GMS)
-        classpath("com.android.tools.build:gradle:4.1.3")
+        classpath("com.android.tools.build:gradle:7.0.4")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.20")
     }
 }
